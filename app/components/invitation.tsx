@@ -1,4 +1,6 @@
 import Image from "next/image";
+import heroPortrait from "../../public/image/Woman with a warm, shy smile.png";
+import mobileHeroPortrait from "../../public/image/Woman with a warm, shy smile smaller screen.png";
 import { people } from '../wedding-details';
 import { Countdown } from "./countdown";
 import StarBorder from "./StarBorder";
@@ -6,7 +8,7 @@ import { GiDiamondRing } from "react-icons/gi";
 import { FiHeart, FiArrowDown, FiArrowUp, FiArrowUpRight, FiMapPin, FiMap } from "react-icons/fi";
 const asset = (name: string) => `/image/${name}`;
 function Heading({ eyebrow, title, description }: { eyebrow: string; title: string; description?: string }) { return <div className="section-heading" data-reveal><span className="eyebrow">{eyebrow}</span><h2>{title}</h2>{description && <p>{description}</p>}<span className="flourish" aria-hidden="true"><Image className="section-divider-gif" src={asset("heart-red-clean.gif")} alt="" width={160} height={90} unoptimized /></span></div>; }
-export function Hero() { return <section className="hero" aria-labelledby="hero-title"><div className="hero-image desktop-portrait"><Image src={asset("Woman with a warm, shy smile.png")} alt="Asib and Nadia smiling against a yellow wall" fill sizes="(max-width: 700px) 1px, 100vw" loading="eager" /></div><div className="hero-image mobile-portrait"><Image src={asset("Couple portrait against a yellow wall.png")} alt="Asib and Nadia together" fill sizes="(max-width: 700px) 100vw, 1px" loading="eager" /></div><div className="hero-copy">
+export function Hero() { return <section className="hero" aria-labelledby="hero-title"><div className="hero-image hero-portrait"><Image src={heroPortrait} alt="Asib and Nadia standing against a white and yellow wall" fill sizes="(max-width: 700px) 1px, 100vw" loading="eager" /><div className="hero-logo-cover" aria-hidden="true" style={{ backgroundImage: `url("${heroPortrait.src}")` }} /></div><div className="hero-image hero-small-portrait"><Image src={mobileHeroPortrait} alt="Asib and Nadia together against a white and yellow wall" fill sizes="(max-width: 700px) 100vw, 1px" loading="eager" /></div><div className="hero-copy">
     {/* <span className="eyebrow">A little love. A lifetime together.</span> */}
     <h1 id="hero-title">WE’RE<br />GETTING<br />MARRIED!</h1><p className="hero-names">Asib & Nadia</p><p className="hero-date">27 DECEMBER <span aria-hidden="true"><FiHeart /></span> PURBA BARDHAMAN</p></div><a className="hero-scroll" href="#couple">And so, our forever begins <span aria-hidden="true"><FiArrowDown /></span></a>
     {/* <span className="hero-side-note">TWO HEARTS · ONE BEAUTIFUL BEGINNING</span> */}
