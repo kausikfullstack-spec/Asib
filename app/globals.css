@@ -421,3 +421,7 @@ body{color:var(--ink)}
  .hero .hero-copy{position:absolute;top:88px;left:50%;transform:translateX(-50%);width:92%;margin:0}
  .hero .hero-scroll{position:absolute;top:auto;bottom:14px;left:50%;transform:translateX(-50%);margin:0;background:#fff8efdf}
 }
+
+.footer .footer-credit{margin:30px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#795361}
+.footer-credit a{font-weight:700;color:#a91e65;text-decoration:underline;text-underline-offset:4px}
+.footer-credit a:hover{color:#752c48}
