@@ -256,3 +256,144 @@ body{color:var(--ink)}
  .hero-copy{top:19%}
  .hero h1{font-size:clamp(40px,6.4vw,98px)}
 }
+
+/* Fold-open wedding invitation entrance. */
+.invitation-entry{min-height:100svh;padding:38px 24px 24px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at 15% 20%,#ecd7c4 0,transparent 45%),radial-gradient(ellipse at 90% 90%,#f0cbdc 0,transparent 48%),#f8eee2;color:#752c48;overflow-x:clip}
+.entry-heading{text-align:center;margin-bottom:25px}.entry-heading p{font-size:26px;font-style:italic;margin:9px 0}.entry-heading .eyebrow{font-size:9px;letter-spacing:2px}
+.folding-card{position:relative;width:min(100%,620px);perspective:1800px;isolation:isolate;filter:drop-shadow(0 22px 28px #68354a24)}
+.card-inside{position:relative;text-align:center;background:#fffaf0;border:1px solid #c9a56c;padding:40px 36px 30px;min-height:720px;outline:7px solid #fffaf0;outline-offset:0;background-image:radial-gradient(#b08d5712 .7px,transparent .7px);background-size:6px 6px}
+.card-inside:before{content:'';position:absolute;inset:12px;border:1px solid #b08d5755;pointer-events:none}
+.card-inside h1{font-family:var(--font-script),cursive;font-size:64px;font-weight:400;line-height:1.2;margin:14px 0;color:#a52f60}.card-invite-copy{font-size:19px;line-height:1.5;max-width:350px;margin:0 auto}.card-date{display:flex;flex-direction:column;align-items:center;gap:3px;margin:22px 0;color:#946b32}.card-date span{font:10px Arial,sans-serif;letter-spacing:3px}.card-date strong{font-size:62px;font-weight:400;line-height:1}
+.card-families{display:grid;grid-template-columns:1fr 1fr;gap:28px;border-block:1px solid #b08d5738;padding:22px 0}.card-families h2{font-size:25px;font-weight:600;margin:8px 0}.card-families p{font-size:16px;line-height:1.45;margin:7px 0}.card-families .card-parents{font-weight:600;font-size:18px}.card-parents span{color:#946b32;font-style:italic}.card-families .card-venue{font-size:15px;color:#7a665b;margin-top:15px}.card-blessing{font-style:italic;font-size:18px;margin:20px 0}
+.card-view-button{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:14px;border:1px solid #9f315d;background:#9f315d;color:#fff8ef;border-radius:3px;padding:15px 26px;cursor:pointer;font:12px Arial,sans-serif;letter-spacing:1.5px;transition:background .2s}.card-view-button:hover{background:#7f2147}
+.card-cover{position:absolute;inset:-7px;z-index:2;width:calc(100% + 14px);height:calc(100% + 14px);padding:20px;border:1px solid #b18b51;background:linear-gradient(120deg,#74243f,#963753 50%,#682239);color:#fce9ca;cursor:pointer;transform-origin:left center;transform-style:preserve-3d;backface-visibility:hidden;transition:transform 1.4s cubic-bezier(.22,.75,.2,1),opacity .5s .6s;box-shadow:inset 6px 0 12px #42132855}
+.card-cover-border{height:100%;border:1px solid #d9b77a;outline:1px solid #d9b77a65;outline-offset:-9px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 18px;background:radial-gradient(ellipse at center,#b9596c22,transparent 70%)}.card-cover .eyebrow{color:#efd4a2}.card-cover-names{display:flex;flex-direction:column;font-family:var(--font-script),cursive;font-size:84px;line-height:1.15;margin:35px 0 25px;font-weight:400}.card-cover-names>span{font-size:42px;color:#dbb47a}.card-cover-date{font:11px Arial,sans-serif;letter-spacing:4px}.card-seal{display:grid;place-items:center;width:65px;height:65px;border-radius:50%;margin:35px 0 22px;background:linear-gradient(135deg,#f3d89d,#b78341);color:#7b2a45;box-shadow:0 4px 12px #38101c55,inset 0 0 0 5px #d7aa6e;font-size:27px}.card-open-hint{font-size:17px;font-style:italic}.is-open .card-cover{transform:rotateY(-155deg);opacity:0;pointer-events:none}.entry-footnote{text-align:center;font-style:italic;font-size:18px;color:#8c6970;margin:25px 0 0}
+@media(max-width:600px){.invitation-entry{padding:26px 22px}.entry-heading{margin-bottom:20px}.entry-heading .eyebrow{font-size:8px;letter-spacing:1.3px}.entry-heading p{font-size:23px}.card-inside{padding:32px 22px 26px;min-height:760px}.card-inside h1{font-size:52px}.card-families{gap:15px;padding:20px 0}.card-families h2{font-size:21px}.card-families .card-parents{font-size:16px}.card-families p,.card-families .card-venue{font-size:14px}.card-invite-copy{font-size:18px}.card-cover-names{font-size:76px}.card-cover{padding:15px}.card-blessing{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.is-open .card-cover{transform:none;opacity:0}}
+
+/* Facing pages and a hinged cover give the open invitation a book shape. */
+.folding-card{width:min(100%,500px);transition:width 1.4s cubic-bezier(.22,.75,.2,1)}
+.is-open .folding-card{width:min(100%,1040px)}
+.card-inside{display:grid;grid-template-columns:1fr;padding:0;min-height:740px;border-radius:3px 9px 9px 3px;outline:0;box-shadow:0 3px 0 #e8dcc5,0 6px 0 #fff5e4,0 9px 0 #c9b799}
+.card-inside:before{display:none}
+.book-page{position:relative;padding:42px 30px 46px;min-width:0}
+.book-page:before{content:'';position:absolute;inset:15px;border:1px solid #b08d5755;pointer-events:none}
+.book-dedication{display:none;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(90deg,transparent 85%,#73502b18 98%,#73502b33);border-radius:3px 0 0 3px}
+.is-open .card-inside{grid-template-columns:1fr 1fr}
+.is-open .book-dedication{display:flex}
+.is-open .book-details{background:linear-gradient(90deg,#73502b26,transparent 8%);border-left:1px solid #ad926c66}
+.book-monogram{font-family:var(--font-script),cursive;font-size:90px;line-height:1.4;color:#a52f60;margin-top:40px}.book-heart{font-size:25px;color:#b08d57;margin:20px 0}.book-vow{font-size:34px;line-height:1.5;font-style:italic;margin:12px 0 30px}.book-dedication-note{font-size:18px;line-height:1.7;color:#8c6970}.book-page-number{position:absolute;bottom:23px;left:0;right:0;font:10px Arial,sans-serif;color:#a58b66;letter-spacing:2px}
+.card-cover{inset:0;width:100%;height:100%;border-radius:3px 9px 9px 3px;transition:transform 1.4s cubic-bezier(.22,.75,.2,1),opacity .3s .9s,left 1.4s cubic-bezier(.22,.75,.2,1),width 1.4s cubic-bezier(.22,.75,.2,1)}
+.is-open .card-cover{left:50%;width:50%;transform:rotateY(-180deg)}
+@media(max-width:600px){.invitation-entry{padding:24px 14px}.is-open .folding-card{width:100%}.book-page{padding:32px 12px 44px}.book-page:before{inset:7px}.book-monogram{font-size:46px;margin-top:22px}.book-vow{font-size:23px;line-height:1.6}.book-dedication .eyebrow{font-size:7px;letter-spacing:1px}.book-dedication-note{font-size:14px}.is-open .card-inside h1{font-size:35px}.is-open .card-invite-copy{font-size:15px}.is-open .card-families{grid-template-columns:1fr;gap:18px;padding:16px 0}.is-open .card-families h2{font-size:19px}.is-open .card-families .card-parents{font-size:14px}.is-open .card-families p,.is-open .card-families .card-venue{font-size:12px}.is-open .card-date{margin:18px 0}.is-open .card-date span{font-size:8px;letter-spacing:1px}.is-open .card-blessing{font-size:14px}.is-open .card-view-button{font-size:10px;letter-spacing:.5px;padding:12px 9px;gap:6px}.card-inside{min-height:740px}}
+@media(prefers-reduced-motion:reduce){.folding-card,.card-cover{transition:none}.is-open .card-cover{transform:none;opacity:0}}
+
+/* Fit the entire book to the available viewport in both orientations. */
+.invitation-entry{padding:max(clamp(24px,4svh,48px),env(safe-area-inset-top)) max(clamp(24px,4vw,64px),env(safe-area-inset-right)) max(clamp(24px,4svh,48px),env(safe-area-inset-bottom)) max(clamp(24px,4vw,64px),env(safe-area-inset-left));min-height:100svh}
+.card-stage{position:relative;flex:none;max-width:100%;margin-inline:auto}
+.card-stage .folding-card{width:420px;max-width:none;transform:scale(var(--card-scale,1));transform-origin:top left}
+.is-open .card-stage .folding-card{width:clamp(720px,calc(100vw - 48px),1040px)}
+.card-stage .card-inside{min-height:700px}
+.card-stage .book-page{padding:32px 24px 44px}
+.card-stage .card-families{gap:16px}
+.card-stage .card-families h2{font-size:23px;overflow-wrap:anywhere}
+.card-stage .card-families .card-parents{font-size:17px}
+.card-stage .card-families .card-venue{font-size:14px}
+.card-stage .card-view-button{min-height:44px;max-width:100%;white-space:normal}
+.card-stage .card-cover-border{padding:24px 14px}
+.card-stage .card-cover-names{font-size:76px;margin:25px 0 20px}
+.entry-heading{flex:none;margin-bottom:clamp(10px,2svh,22px)}
+.entry-footnote{flex:none;margin:clamp(12px,2svh,22px) 0 0}
+@media(max-width:600px){
+ .card-stage .book-page{padding:30px 20px 42px}
+ .is-open .card-stage .card-families{grid-template-columns:1fr 1fr;gap:14px}
+ .is-open .card-stage .card-inside h1{font-size:52px}
+ .is-open .card-stage .card-invite-copy{font-size:18px}
+ .is-open .card-stage .card-families h2{font-size:22px}
+ .is-open .card-stage .card-families .card-parents{font-size:17px}
+ .is-open .card-stage .card-families p,.is-open .card-stage .card-families .card-venue{font-size:15px}
+ .is-open .card-stage .card-date span{font-size:10px;letter-spacing:2px}
+ .is-open .card-stage .card-blessing{font-size:18px}
+ .is-open .card-stage .card-view-button{font-size:13px;padding:14px 20px;gap:10px}
+ .card-stage .book-monogram{font-size:76px}.card-stage .book-vow{font-size:30px}.card-stage .book-dedication-note{font-size:18px}
+ .card-stage .book-dedication .eyebrow{font-size:10px;letter-spacing:1.5px}
+}
+@media(max-height:500px){.entry-heading .eyebrow,.entry-footnote{display:none}.entry-heading p{font-size:20px;margin:0}.entry-heading{margin-bottom:10px}.invitation-entry{padding-top:max(18px,env(safe-area-inset-top));padding-bottom:max(18px,env(safe-area-inset-bottom))}}
+
+/* A glowing heart seal invites guests to open the card. */
+.card-seal{position:relative;isolation:isolate;flex-shrink:0;width:76px;height:76px;margin:35px 0 28px;background:linear-gradient(135deg,#fff4b0,#ffe34d 52%,#e9bb20);color:#922858;border:1px solid #ffe34d;box-shadow:0 6px 18px #38101c55,inset 0 0 0 5px #cc37834d,0 0 24px #cc37834d;animation:seal-float 3s ease-in-out infinite}
+.card-seal:before,.card-seal:after{content:'';position:absolute;inset:-8px;border:2px solid #ffe34d;border-radius:50%;pointer-events:none;animation:seal-ripple 2.8s ease-out infinite;z-index:-1}
+.card-seal:after{animation-delay:1.4s;border-color:#cc37834d;border-width:5px}
+.card-seal svg{width:31px;height:31px;stroke-width:2;fill:#cc37834d;animation:seal-heartbeat 2.8s ease-in-out infinite}
+.card-open-hint{display:flex;flex-direction:column;align-items:center;gap:7px;font-style:normal;color:#fff4cf}
+.card-open-hint>svg{width:22px;height:22px;color:#ffe34d;animation:seal-point 1.6s ease-in-out infinite}
+.card-open-hint strong{font:600 15px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:#ffe34d;border:1px solid #ffe34d80;background:#cc37834d;border-radius:30px;padding:11px 20px;box-shadow:0 0 20px #cc37834d}
+.card-open-hint>span{font-size:16px;line-height:1.5;margin-top:3px}
+.card-cover:hover .card-seal,.card-cover:focus-visible .card-seal{box-shadow:0 6px 22px #38101c55,inset 0 0 0 5px #cc37834d,0 0 36px #ffe34d99}
+.card-cover:hover .card-open-hint strong,.card-cover:focus-visible .card-open-hint strong{background:#ffe34d;color:#752c48}
+.is-open .card-seal,.is-open .card-seal:before,.is-open .card-seal:after,.is-open .card-seal svg,.is-open .card-open-hint>svg{animation:none}
+@keyframes seal-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes seal-ripple{0%{transform:scale(.85);opacity:0}15%{opacity:.8}100%{transform:scale(1.65);opacity:0}}
+@keyframes seal-heartbeat{0%,30%,60%,100%{transform:scale(1)}40%{transform:scale(1.17)}50%{transform:scale(1.06)}}
+@keyframes seal-point{0%,100%{transform:translateY(3px)}50%{transform:translateY(-4px)}}
+@media(prefers-reduced-motion:reduce){.card-seal,.card-seal:before,.card-seal:after,.card-seal svg,.card-open-hint>svg{animation:none}.card-seal:before{opacity:.5}.card-seal:after{display:none}}
+
+/* Botanical arch and rose satin cover, inspired by the supplied card. */
+.invitation-entry{background:radial-gradient(ellipse at 20% 10%,#f2dfdf 0,transparent 55%),#faf4e9}
+.invitation-entry:not(.is-open) .card-stage .card-inside{height:630px;min-height:630px;overflow:hidden;visibility:hidden}
+.card-stage .card-cover{background:#fcf7ec url('/image/floral-curtain-card.png') center / 100% 100% no-repeat;border:0;border-radius:4px;color:#956437;box-shadow:0 12px 35px #825a4424}
+.card-stage .card-cover-border{position:absolute;inset:0;padding:0;border:0;outline:0;background:none;display:block}
+.card-cover-border>.eyebrow{position:absolute;top:41%;left:25%;width:50%;font-size:8px;letter-spacing:1.5px;line-height:1.5;color:#956437}
+.card-stage .card-cover-names{position:absolute;top:46%;left:22%;width:56%;font-family:var(--font-serif),Georgia,serif;font-size:48px;font-weight:400;line-height:1.05;margin:0;letter-spacing:1px;color:#956437}
+.card-cover-names>span{font-family:var(--font-script),cursive;font-size:29px;line-height:1.1;color:#c77e91}
+.card-cover-date{position:absolute;top:67%;left:25%;width:50%;font-size:10px;letter-spacing:2px;color:#956437}
+.card-cover .card-seal{position:absolute;top:73%;left:50%;width:48px;height:48px;margin:0 0 0 -24px;font-size:22px;box-shadow:0 4px 14px #cc37834d,inset 0 0 0 4px #cc37834d}
+.card-cover .card-seal svg{width:24px;height:24px}
+.card-cover .card-open-hint{position:absolute;top:83%;left:23%;width:54%;gap:4px;color:#956437}
+.card-cover .card-open-hint>svg{width:16px;height:16px;color:#b27a42}
+.card-cover .card-open-hint strong{font-size:10px;letter-spacing:1.5px;padding:7px 13px;color:#762548;background:#ffe34d;border:1px solid #d4b14a;box-shadow:0 3px 12px #cc37834d}
+.card-cover .card-open-hint>span{font-size:11px;line-height:1.25;margin:0;max-width:140px}
+.book-page:before{border-color:#d3bd6c80}.card-inside{background-color:#fffaf1}.book-monogram,.card-inside h1{color:#a66a62}.is-open .book-dedication{background:radial-gradient(ellipse at 15% 10%,#cc378315,transparent 55%),linear-gradient(90deg,transparent 85%,#a3874930)}
+
+/* A coordinated cover turn, unfolding paper, and soft moving crease. */
+.card-stage .folding-card{perspective:2200px;transition:width 2.2s cubic-bezier(.22,.68,.16,1)}
+.card-stage .card-cover{transition:left 2.2s cubic-bezier(.22,.68,.16,1),width 2.2s cubic-bezier(.22,.68,.16,1),transform 2.2s cubic-bezier(.22,.68,.16,1),opacity .45s 1.55s;transform-origin:0 50%;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.is-open .card-stage .card-cover{animation:invitation-cover-turn 2.2s cubic-bezier(.22,.68,.16,1) both}
+.is-open .card-inside{perspective:1800px;overflow:visible}
+.is-open .book-dedication{transform-origin:right center;animation:invitation-left-unfold 2.2s cubic-bezier(.22,.68,.16,1) both;backface-visibility:hidden}
+.is-open .book-details{transform-origin:left center;animation:invitation-right-settle 2.2s cubic-bezier(.22,.68,.16,1) both;backface-visibility:hidden}
+.is-open .book-page>*{animation:invitation-ink-reveal .85s .95s ease-out both}
+.is-open .book-details .card-view-button{animation-delay:1.45s}
+.is-open .card-inside:after{content:'';position:absolute;inset:0;z-index:1;border-radius:inherit;pointer-events:none;background:linear-gradient(90deg,transparent 5%,#5b382638 43%,#5b38265c 50%,#5b382626 57%,transparent 95%);animation:invitation-fold-shadow 2.3s ease-in-out both}
+@keyframes invitation-cover-turn{0%{transform:rotateY(0deg);opacity:1}30%{opacity:1}65%{transform:rotateY(-110deg);opacity:.85}90%,100%{transform:rotateY(-180deg);opacity:0}}
+@keyframes invitation-left-unfold{0%{transform:rotateY(72deg);filter:brightness(.82)}45%{filter:brightness(.94)}100%{transform:rotateY(0deg);filter:brightness(1)}}
+@keyframes invitation-right-settle{0%{transform:rotateY(-12deg);filter:brightness(.88)}100%{transform:rotateY(0deg);filter:brightness(1)}}
+@keyframes invitation-ink-reveal{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+@keyframes invitation-fold-shadow{0%{opacity:.1}35%{opacity:.85}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){
+ .card-stage .folding-card,.card-stage .card-cover{transition:none}
+ .is-open .card-stage .card-cover,.is-open .book-dedication,.is-open .book-details,.is-open .book-page>*{animation:none;transform:none;filter:none}
+ .is-open .card-stage .card-cover{opacity:0}
+ .is-open .card-inside:after{display:none}
+}
+
+/* Darker, slightly bolder lettering stays clear inside the scaled card. */
+.card-stage .card-inside{color:#632b40}
+.card-stage .card-inside .eyebrow{color:#745020;font-size:11px;font-weight:700;letter-spacing:1.5px}
+.card-stage .card-inside h1,.card-stage .book-monogram{color:#8a3c4e;font-weight:500}
+.card-stage .book-vow{color:#753348;font-weight:600}
+.card-stage .book-dedication-note{color:#654b43;font-size:20px;font-weight:600;line-height:1.6}
+.card-stage .card-inside .card-invite-copy{color:#632b40;font-size:20px;font-weight:600;line-height:1.5}
+.card-stage .card-inside .card-families h2{color:#632b40;font-size:25px;font-weight:700;line-height:1.25}
+.card-stage .card-inside .card-families p{font-family:Arial,Helvetica,sans-serif;color:#65423e;font-size:17px;font-weight:500;line-height:1.5}
+.card-stage .card-inside .card-families .card-parents{color:#562c3b;font-size:18px;font-weight:600;line-height:1.5}
+.card-stage .card-inside .card-families .card-venue{color:#584439;font-size:16px;font-weight:600;line-height:1.5}
+.card-stage .card-parents span,.card-stage .card-date{color:#745020}
+.card-stage .card-date strong{font-weight:600}
+.card-stage .card-date span{font-weight:700}
+.card-stage .card-inside .card-blessing{color:#713449;font-size:19px;font-weight:600;line-height:1.5}
+.card-stage .card-inside .card-view-button{font-weight:700;font-size:14px;letter-spacing:1px}
+.card-stage .book-page-number{color:#745020;font-weight:600}
+.card-stage .card-cover-names{font-weight:600;color:#80502b}
+.card-stage .card-cover-date{font-weight:700;color:#80502b}
+.card-stage .card-cover-border>.eyebrow,.card-stage .card-open-hint>span{font-weight:600;color:#73492b}
