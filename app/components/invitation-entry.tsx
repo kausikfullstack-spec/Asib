@@ -1,12 +1,14 @@
 'use client';
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { FiArrowRight, FiArrowUp, FiHeart } from 'react-icons/fi';
+import { FiArrowRight, FiArrowUp, FiHeart, FiVolume2, FiVolumeX } from 'react-icons/fi';
 import { people } from '../wedding-details';
 
 export function InvitationEntry({ children }: { children: ReactNode }) {
   const [opened, setOpened] = useState(false);
   const [entered, setEntered] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const music = useRef<HTMLAudioElement>(null);
   const detailsHeading = useRef<HTMLHeadingElement>(null);
   const cardStage = useRef<HTMLDivElement>(null);
   const cardBook = useRef<HTMLDivElement>(null);
@@ -64,9 +66,37 @@ export function InvitationEntry({ children }: { children: ReactNode }) {
     }
   }, [entered]);
 
-  if (entered) return children;
+  const playMusic = () => {
+    const audio = music.current;
+    if (!audio) return;
+    audio.volume = 0.5;
+    void audio.play().catch(() => setMusicPlaying(false));
+  };
+
+  const openInvitation = () => {
+    playMusic();
+    setOpened(true);
+  };
 
   return (
+    <>
+    <audio
+      ref={music}
+      src={`/image/newimage/${encodeURIComponent('Elo elo song status #viralvideo #love #lovestatus #shorts.mp3')}`}
+      preload="none"
+      loop
+      onPlay={() => setMusicPlaying(true)}
+      onPause={() => setMusicPlaying(false)}
+      onError={() => setMusicPlaying(false)}
+    />
+    {opened && <button
+      type="button"
+      className="invitation-music-toggle"
+      aria-label={musicPlaying ? 'Turn sound off' : 'Turn sound on'}
+      title={musicPlaying ? 'Turn sound off' : 'Turn sound on'}
+      onClick={() => musicPlaying ? music.current?.pause() : playMusic()}
+    >{musicPlaying ? <FiVolume2 aria-hidden="true" /> : <FiVolumeX aria-hidden="true" />}</button>}
+    {entered ? children : (
     <main className={`invitation-entry${opened ? ' is-open' : ''}`}>
       <div className="entry-heading">
         <span className="eyebrow">A little envelope. A lifetime of love.</span>
@@ -104,7 +134,7 @@ export function InvitationEntry({ children }: { children: ReactNode }) {
           <span className="book-page-number" aria-hidden="true">02</span>
           </div>
         </section>
-        <button className="card-cover" onClick={() => setOpened(true)} aria-label="Open Asib and Nadia's wedding invitation" aria-expanded={opened} aria-controls="card-details-title" tabIndex={opened ? -1 : 0} aria-hidden={opened}>
+        <button className="card-cover" onClick={openInvitation} aria-label="Open Asib and Nadia's wedding invitation" aria-expanded={opened} aria-controls="card-details-title" tabIndex={opened ? -1 : 0} aria-hidden={opened}>
           <span className="card-cover-border">
             <span className="eyebrow">The wedding invitation</span>
             <span className="card-cover-names">Asib<span>&amp;</span>Nadia</span>
@@ -117,5 +147,7 @@ export function InvitationEntry({ children }: { children: ReactNode }) {
       </div>
       <p className="entry-footnote">Two hearts, one beautiful beginning.</p>
     </main>
+    )}
+    </>
   );
 }

@@ -414,14 +414,72 @@ body{color:var(--ink)}
 /* Dedicated portrait composition for phones. */
 .hero-small-portrait{display:none}
 @media(max-width:700px){
- .hero{display:block;padding-top:76px}
+ .hero{display:flex;flex-direction:column;padding-top:88px}
  .hero .hero-portrait{display:none}
- .hero .hero-small-portrait{display:block;position:relative;inset:auto;width:100%;aspect-ratio:1536 / 2752}
+ .hero .hero-small-portrait{display:block;position:relative;inset:auto;order:1;width:100%;flex:none}
  .hero .hero-small-portrait img{object-fit:contain;object-position:center bottom}
- .hero .hero-copy{position:absolute;top:88px;left:50%;transform:translateX(-50%);width:92%;margin:0}
- .hero .hero-scroll{position:absolute;top:auto;bottom:14px;left:50%;transform:translateX(-50%);margin:0;background:#fff8efdf}
+ .hero .hero-copy{position:relative;inset:auto;transform:none;order:0;width:92%;margin:0 auto 18px}
+ .hero .hero-scroll{position:relative;inset:auto;transform:none;order:2;margin:16px auto 20px;background:#fff8efdf}
 }
 
 .footer .footer-credit{margin:30px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#795361}
 .footer-credit a{font-weight:700;color:#a91e65;text-decoration:underline;text-underline-offset:4px}
 .footer-credit a:hover{color:#752c48}
+
+.invitation-music-toggle{position:fixed;right:max(20px,env(safe-area-inset-right));top:max(16px,env(safe-area-inset-top));z-index:50;display:grid;place-items:center;width:44px;height:44px;border:1px solid #cc37834d;border-radius:50%;background:#fff8ef;color:#a91e65;box-shadow:0 4px 16px #71344920;cursor:pointer}
+.invitation-music-toggle svg{width:20px;height:20px}
+
+/* Keep mobile content within the viewport, including narrow phones. */
+@media(max-width:700px){
+ html,body{max-width:100%;overflow-x:clip}
+ #home,.section,.footer,.invitation-entry{min-width:0;max-width:100%}
+ .couple-grid,.venue-grid,.story-chapter{grid-template-columns:minmax(0,1fr)}
+ .gallery-grid,.countdown-units{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .couple-grid>*,.venue-grid>*,.gallery-grid>*,.story-chapter>*{min-width:0;max-width:100%}
+ .couple-section .person h3.groom-name{flex-wrap:wrap;gap:8px 16px;white-space:normal;font-size:clamp(26px,8vw,36px)}
+ .section-heading,.story-copy,.venue-card,.person,.footer{overflow-wrap:anywhere}
+ .story-chapter .story-photo,.story-chapter:nth-child(even) .story-photo{width:100%;transform:none}
+ .date-display{flex-wrap:wrap}
+ .hero .hero-scroll{max-width:92%;white-space:normal;text-align:center}
+ .venue-map-button{max-width:100%;white-space:normal}
+ .countdown-units{gap:20px 12px}
+ .flip-countdown-container{max-width:100%}
+ .flip-unit{width:clamp(24px,7vw,44px)}
+ .entry-heading,.entry-footnote{min-width:0;max-width:100%;overflow-wrap:anywhere}
+}
+
+/* Two desktop portraits frame the wedding announcement. */
+@media(min-width:701px){
+ .hero{
+  isolation:isolate;
+  height:clamp(600px,56vw,900px);min-height:0;aspect-ratio:auto;
+  background-color:#fff;
+  background-image:
+   linear-gradient(to bottom,rgba(255,255,255,.94) 0%,rgba(255,255,255,.9) 15%,rgba(255,255,255,0) 28%),
+   linear-gradient(110deg,#a7d8cd 0%,#bdcedf 48%,#dcc4e4 100%),
+   url('/image/newimage/Clean white and yellow wall backdrop.png');
+  background-blend-mode:normal,color,normal;
+  background-size:100% 100%;
+  background-position:center;
+  background-repeat:no-repeat;
+ }
+ .hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:url('/image/love_background2.jpg') center top/cover no-repeat;
+  opacity:.075;
+  mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 64%);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 64%);
+ }
+ .hero .hero-portrait{position:absolute;width:36%;height:auto;transform:none}
+ .hero .hero-portrait-left{inset:20px auto 65px -1%}
+ .hero .hero-portrait-right{inset:20px -1% 65px auto}
+ .hero .hero-portrait img{object-fit:contain;object-position:center bottom}
+ .hero .hero-copy{top:50%;transform:translate(-50%,-50%);width:40%;z-index:1}
+ .hero h1{font-size:clamp(38px,5.8vw,90px);letter-spacing:-.045em}
+ .hero-names{font-size:clamp(24px,2.7vw,36px)}
+ .hero-date{line-height:1.8}
+}
