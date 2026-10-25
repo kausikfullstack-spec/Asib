@@ -82,7 +82,7 @@ export function InvitationEntry({ children }: { children: ReactNode }) {
     <>
     <audio
       ref={music}
-      src={`/image/newimage/${encodeURIComponent('Elo elo song status #viralvideo #love #lovestatus #shorts.mp3')}`}
+      src={`/image/newimage/${encodeURIComponent('Shukran Allah - Instrumental Flute Cover Rahul Tiwari flute cover.mp3')}`}
       preload="none"
       loop
       onPlay={() => setMusicPlaying(true)}
