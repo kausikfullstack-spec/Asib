@@ -236,6 +236,21 @@ body{color:var(--ink)}
 .date-display{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:22px;flex-wrap:nowrap}
 .date-display>span:last-child{grid-column:auto;letter-spacing:2px}
 @media(max-width:700px){.date-display{gap:12px}.date-display>span:first-child{font-size:10px;letter-spacing:1px}.date-display>strong{font-size:60px}.date-display>span:last-child{font-size:8px;letter-spacing:.7px;white-space:nowrap}}
+/* Stack the wedding and reception dates. */
+.date-displays{display:flex;flex-direction:column;align-items:center;gap:6px;margin:25px 0 47px}
+.date-displays>.date-display{margin:0}
+.date-displays>.date-display>span:first-child,.date-displays>.date-display>span:last-child{min-width:130px}
+.date-displays>.date-display>span:first-child{text-align:right}
+.date-displays>.date-display>span:last-child{text-align:left}
+@media(max-width:700px){.date-displays>.date-display>span:first-child,.date-displays>.date-display>span:last-child{min-width:78px}}
+/* Highlight the event names as pill badges. */
+.date-displays>.date-display>span:last-child{min-width:160px;text-align:center;box-sizing:border-box;display:inline-block;padding:8px 16px;border:1px solid #cc378366;border-radius:30px;background:#cc37831a;color:var(--pink);font-size:12px;font-weight:600;letter-spacing:2.5px;white-space:nowrap;box-shadow:0 2px 8px #cc378322}
+.date-displays>.date-display:last-child>span:last-child{background:var(--pink);color:#fff;border-color:var(--pink)}
+@media(max-width:700px){.date-displays>.date-display>span:last-child{min-width:104px;padding:6px 8px;font-size:9px;letter-spacing:1.2px}}
+/* Highlight the event names as pill badges. */
+.date-displays>.date-display>span:last-child{min-width:0;justify-self:start;display:inline-block;padding:8px 16px;border:1px solid #cc378366;border-radius:30px;background:#cc37831a;color:var(--pink);font-size:12px;font-weight:600;letter-spacing:2.5px;white-space:nowrap;box-shadow:0 2px 8px #cc378322}
+.date-displays>.date-display:last-child>span:last-child{background:var(--pink);color:#fff;border-color:var(--pink)}
+@media(max-width:700px){.date-displays>.date-display>span:last-child{padding:6px 10px;font-size:9px;letter-spacing:1.2px}}
 /* Handwritten lettering only for the bride and groom names. */
 .couple-section .person h3{font-family:var(--font-script),'Segoe Script',cursive;font-size:54px;font-weight:400;font-style:normal;letter-spacing:0;line-height:1.35;margin:12px 0 20px}
 @media(max-width:700px){.couple-section .person h3{font-size:44px}}
